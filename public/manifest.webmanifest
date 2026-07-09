@@ -1,0 +1,24 @@
+{
+  "name": "GIF Studio — GIF & Video Editing Tools",
+  "short_name": "GIF Studio",
+  "description": "Create GIFs, convert videos, resize, crop, compress, optimize, and download instantly without installing any software. No watermark. No signup. Works directly in your browser.",
+  "start_url": "/video-to-gif/",
+  "scope": "/video-to-gif/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/video-to-gif/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/video-to-gif/icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

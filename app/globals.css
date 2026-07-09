@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #ffffff;
+  --bg-alt: #f6f6f6;
+  --fg: #0a0a0a;
+  --muted: #666666;
+  --card: #ffffff;
+  --border: #e4e4e4;
+  --accent: 0 0 0; /* rgb channels — pure black */
+  --accent-fg: #ffffff;
+}
+
+.dark {
+  --bg: #0a0a0a;
+  --bg-alt: #141414;
+  --fg: #f5f5f5;
+  --muted: #a1a1a1;
+  --card: #131313;
+  --border: #2a2a2a;
+  --accent: 255 255 255; /* rgb channels — pure white */
+  --accent-fg: #0a0a0a;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgb(var(--accent) / 0.15);
+  color: inherit;
+}
+
+@layer components {
+  /* Solid, flat surfaces — corporate look (class names kept for compatibility) */
+  .glass {
+    background: var(--card);
+    border: 1px solid var(--border);
+  }
+
+  .glass-strong {
+    background: var(--card);
+    border: 1px solid var(--border);
+  }
+
+  .surface-alt {
+    background: var(--bg-alt);
+  }
+
+  .text-muted {
+    color: var(--muted);
+  }
+
+  .container-px {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  /* Headings render as solid, professional text (no gradient) */
+  .heading-gradient {
+    color: var(--fg);
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2;
+    --tw-ring-offset-color: var(--bg);
+  }
+
+  .btn-primary {
+    @apply btn;
+    background-color: rgb(var(--accent));
+    color: var(--accent-fg);
+  }
+  .btn-primary:hover {
+    opacity: 0.88;
+  }
+
+  .btn-ghost {
+    @apply btn border text-[color:var(--fg)];
+    background-color: var(--card);
+  }
+  .btn-ghost:hover {
+    border-color: rgb(var(--accent));
+    color: rgb(var(--accent));
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-md border px-2.5 py-1 text-xs font-medium text-muted;
+    background: var(--card);
+  }
+
+  .icon-tile {
+    @apply grid place-items-center rounded-lg border text-accent;
+    background: rgb(var(--accent) / 0.06);
+    border-color: var(--border);
+  }
+  .dark .icon-tile {
+    background: rgb(var(--accent) / 0.1);
+  }
+
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-accent;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Hero panel range slider */
+  .hero-range {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 9999px;
+    cursor: pointer;
+    outline: none;
+  }
+  .hero-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 9999px;
+    background: var(--card);
+    border: 2px solid rgb(var(--accent));
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s ease;
+  }
+  .hero-range::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+  }
+  .hero-range::-moz-range-thumb {
+    height: 16px;
+    width: 16px;
+    border-radius: 9999px;
+    background: var(--card);
+    border: 2px solid rgb(var(--accent));
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Theme View Transitions */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
+}
+
+/* Lenis */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
