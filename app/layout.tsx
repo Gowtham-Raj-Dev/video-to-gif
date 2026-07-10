@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -89,6 +90,15 @@ export default function RootLayout({
       className={`scroll-smooth ${inter.variable} ${jakarta.variable}`}
     >
       <body className="min-h-screen font-sans antialiased">
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-J5QTR1JC22" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-J5QTR1JC22');
+          `}
+        </Script>
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <ThemeProvider>
           <SmoothScroll />
