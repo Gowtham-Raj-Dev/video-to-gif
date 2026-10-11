@@ -7,7 +7,7 @@ import { buildMetadata, breadcrumbSchema } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Contact GIF Studio",
+  title: "Contact",
   description:
     "Get in touch with the GIF Studio team. Questions, feedback or partnership ideas — we'd love to hear from you.",
   path: "/contact",

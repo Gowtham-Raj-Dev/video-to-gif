@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { ToolsExplorer } from "@/components/tools/ToolsExplorer";
 import { CtaBanner } from "@/components/CtaBanner";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { TOOLS } from "@/lib/tools";
 import { JsonLd } from "@/components/JsonLd";
-import { buildMetadata, breadcrumbSchema, softwareApplicationSchema } from "@/lib/seo";
+import { buildMetadata, breadcrumbSchema, toolListSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "All GIF & Video Editing Tools | GIF Studio",
+  title: "All GIF & Video Editing Tools",
   description:
     "Browse every GIF and video tool: convert, compress, resize and crop online. Free, private, browser-based tools with no watermark and no signup required.",
   path: "/tools",
@@ -25,7 +26,7 @@ export default function ToolsPage() {
     <>
       <JsonLd
         data={[
-          softwareApplicationSchema(),
+          toolListSchema(TOOLS),
           breadcrumbSchema([
             { name: "Home", path: "/" },
             { name: "Tools", path: "/tools" },

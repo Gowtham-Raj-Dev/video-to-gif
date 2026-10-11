@@ -3,7 +3,7 @@ import { LegalPage } from "@/components/LegalPage";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Terms of Service | GIF Studio",
+  title: "Terms of Service",
   description:
     "Read the terms of service for using GIF Studio's free online GIF and video editing tools.",
   path: "/terms",
@@ -13,7 +13,7 @@ export default function TermsPage() {
   return (
     <LegalPage
       title="Terms of Service"
-      updated="July 8, 2026"
+      updated="October 10, 2026"
       crumbLabel="Terms"
       crumbPath="/terms"
       intro="By using GIF Studio, you agree to these terms. They're intentionally simple — our tools are free to use for personal and commercial projects."
@@ -29,6 +29,12 @@ export default function TermsPage() {
           heading: "Acceptable Use",
           body: [
             "You agree not to use GIF Studio to process illegal content or to attempt to disrupt, reverse engineer for malicious purposes, or overload the service.",
+          ],
+        },
+        {
+          heading: "Advertising and Third-Party Links",
+          body: [
+            "The site may display advertising, and it links to other CodeLove sites and to external websites. We do not control third-party content and are not responsible for it. See the Privacy Policy for how advertising works.",
           ],
         },
         {

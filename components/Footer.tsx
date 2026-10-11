@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { GithubIcon, GridIcon } from "@/components/Icons";
 import { HeartButton } from "@/components/HeartButton";
-import { SITE } from "@/lib/site";
+import { NETWORK, SITE, VIDEO_TO_IMAGES_URL } from "@/lib/site";
 import { TOOLS } from "@/lib/tools";
 
 const columns = [
@@ -23,6 +23,7 @@ const columns = [
     title: "Support",
     links: [
       { label: "FAQ", href: "/#faq" },
+      { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
       { label: "Privacy Policy", href: "/privacy" },
       { label: "Terms", href: "/terms" },
@@ -42,7 +43,7 @@ export function Footer() {
               online — free, private and watermark-free.
             </p>
             <a
-              href="https://videotoframe.codelove.in/"
+              href={VIDEO_TO_IMAGES_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 flex items-start gap-3 rounded-lg border border-accent/20 bg-accent/5 p-3 transition-colors hover:border-accent/40 hover:bg-accent/10"
@@ -52,10 +53,10 @@ export function Footer() {
               </div>
               <div>
                 <span className="block text-sm font-semibold text-accent">
-                  Video to Frame <span className="ml-1 text-[10px]">✨ New</span>
+                  Video to Images <span className="ml-1 text-[10px]">✨ New</span>
                 </span>
                 <span className="mt-0.5 block text-xs text-muted">
-                  Extract high-quality frames from video
+                  Extract frames from video, plus image tools
                 </span>
               </div>
             </a>
@@ -80,6 +81,47 @@ export function Footer() {
               </ul>
             </div>
           ))}
+        </div>
+
+        <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+          <h3 className="font-semibold text-[color:var(--fg)]">More from CodeLove</h3>
+          {NETWORK.map((n) => (
+            <a
+              key={n.href}
+              href={n.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted transition hover:text-accent"
+            >
+              {n.label}
+            </a>
+          ))}
+          <a
+            href={SITE.brandUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="CodeLove — codelove.in"
+            className="block w-fit max-sm:mt-3 max-sm:basis-full sm:ml-auto"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/codelove/codelove-footer-on-light.png"
+              alt="CodeLove"
+              width={704}
+              height={144}
+              loading="lazy"
+              className="h-12 w-auto [.dark_&]:hidden"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/codelove/codelove-footer-on-dark.png"
+              alt="CodeLove"
+              width={704}
+              height={144}
+              loading="lazy"
+              className="hidden h-12 w-auto [.dark_&]:block"
+            />
+          </a>
         </div>
 
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-[color:var(--border)] pt-6 text-sm text-muted sm:flex-row">

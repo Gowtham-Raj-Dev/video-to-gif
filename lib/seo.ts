@@ -1,13 +1,23 @@
 import type { Metadata } from "next";
-import { SITE } from "./site";
+import { SITE, absoluteUrl } from "./site";
 import type { Tool } from "./tools";
 
 interface PageSeo {
+  /** Page title WITHOUT the brand — the root layout template appends " | GIF Studio". */
   title: string;
   description: string;
   path: string; // e.g. "/tools" or "/video-to-gif"
   keywords?: string[];
 }
+
+/** Default social share image: a static 1200x630 file at public/og.png. */
+export const OG_IMAGE = {
+  url: "/og.png",
+  width: 1200,
+  height: 630,
+  alt: "GIF Studio — free online GIF and video tools that run in your browser",
+  type: "image/png",
+} as const;
 
 /** Build a full Metadata object with OG, Twitter and canonical for any page. */
 export function buildMetadata({
@@ -16,40 +26,49 @@ export function buildMetadata({
   path,
   keywords,
 }: PageSeo): Metadata {
-  const url = `${SITE.url}${path}`;
+  const url = absoluteUrl(path);
+  // Some titles already carry the brand; the root template adds it back once.
+  const suffix = ` | ${SITE.name}`;
+  const bare = title.endsWith(suffix) ? title.slice(0, -suffix.length) : title;
+  const socialTitle = `${bare} | ${SITE.name}`;
   return {
-    title,
+    title: bare,
     description,
     keywords,
     alternates: { canonical: url },
     openGraph: {
       type: "website",
       url,
-      title,
+      title: socialTitle,
       description,
       siteName: SITE.name,
+      locale: "en_US",
+      images: [OG_IMAGE],
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: socialTitle,
       description,
       creator: SITE.twitter,
+      images: [OG_IMAGE.url],
     },
-    robots: { index: true, follow: true },
   };
 }
 
 /* ---------- JSON-LD structured data ---------- */
 
+const ORGANIZATION_ID = `${SITE.brandUrl}/#organization`;
+const WEBSITE_ID = `${absoluteUrl("/")}#website`;
+
+/** The publisher behind the site: CodeLove. */
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: SITE.name,
-    url: SITE.url,
-    description: SITE.description,
-    founder: { "@type": "Person", name: SITE.creator },
-    sameAs: [SITE.brandUrl],
+    "@id": ORGANIZATION_ID,
+    name: "CodeLove",
+    url: SITE.brandUrl,
+    email: SITE.email,
   };
 }
 
@@ -57,32 +76,29 @@ export function websiteSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": WEBSITE_ID,
     name: SITE.name,
-    url: SITE.url,
+    url: absoluteUrl("/"),
     description: SITE.description,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${SITE.url}/tools?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
+    inLanguage: "en",
+    publisher: { "@id": ORGANIZATION_ID },
   };
 }
 
 export function softwareApplicationSchema(tool?: Tool) {
   return {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
+    "@type": "WebApplication",
     name: tool ? `${tool.name} — ${SITE.name}` : SITE.name,
     applicationCategory: "MultimediaApplication",
     operatingSystem: "Web Browser",
+    browserRequirements: "Requires JavaScript and WebAssembly",
     description: tool ? tool.metaDescription : SITE.description,
-    url: tool ? `${SITE.url}/${tool.slug}` : SITE.url,
+    url: absoluteUrl(tool ? `/${tool.slug}` : "/"),
+    isAccessibleForFree: true,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      ratingCount: "1280",
-    },
+    isPartOf: { "@id": WEBSITE_ID },
+    publisher: { "@id": ORGANIZATION_ID },
   };
 }
 
@@ -98,6 +114,40 @@ export function faqSchema(faqs: { question: string; answer: string }[]) {
   };
 }
 
+/** HowTo — only for pages that visibly list the same steps. */
+export function howToSchema(
+  name: string,
+  steps: readonly { title: string; description: string }[]
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name,
+    step: steps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.title,
+      text: s.description,
+    })),
+  };
+}
+
+/** ItemList of tool pages, for the /tools index. */
+export function toolListSchema(tools: Tool[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `${SITE.name} tools`,
+    numberOfItems: tools.length,
+    itemListElement: tools.map((t, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: t.name,
+      url: absoluteUrl(`/${t.slug}`),
+    })),
+  };
+}
+
 export function breadcrumbSchema(items: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",
@@ -106,7 +156,7 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
       "@type": "ListItem",
       position: i + 1,
       name: item.name,
-      item: `${SITE.url}${item.path}`,
+      item: absoluteUrl(item.path),
     })),
   };
 }

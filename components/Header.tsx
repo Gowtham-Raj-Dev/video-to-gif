@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Logo } from "@/components/Logo";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { MenuIcon, CloseIcon, ChevronIcon, ToolIcon, GridIcon } from "@/components/Icons";
-import { NAV_LINKS, SITE } from "@/lib/site";
+import { NAV_LINKS, SITE, VIDEO_TO_IMAGES_URL } from "@/lib/site";
 import { TOOLS } from "@/lib/tools";
 
 export function Header() {
@@ -53,7 +53,7 @@ export function Header() {
                           </Link>
                         ))}
                         <a
-                          href="https://videotoframe.codelove.in/"
+                          href={VIDEO_TO_IMAGES_URL}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-start gap-3 rounded-lg border border-accent/20 bg-accent/5 p-3 transition-colors hover:border-accent/40 hover:bg-accent/10"
@@ -62,8 +62,8 @@ export function Header() {
                             <GridIcon className="h-4 w-4" />
                           </div>
                           <div>
-                            <span className="block text-sm font-semibold text-accent">Video to Frame <span className="ml-1 text-[10px]">✨ New</span></span>
-                            <span className="mt-0.5 block text-xs text-muted line-clamp-2">Extract high-quality frames from video</span>
+                            <span className="block text-sm font-semibold text-accent">Video to Images <span className="ml-1 text-[10px]">✨ New</span></span>
+                            <span className="mt-0.5 block text-xs text-muted line-clamp-2">Extract frames from video, plus image tools</span>
                           </div>
                         </a>
                       </div>
@@ -122,13 +122,13 @@ export function Header() {
                       </Link>
                     ))}
                     <a
-                      href="https://videotoframe.codelove.in/"
+                      href={VIDEO_TO_IMAGES_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 rounded-md px-3 py-2.5 text-sm text-muted transition-colors hover:text-[color:var(--fg)]"
                     >
                       <GridIcon className="h-3.5 w-3.5" />
-                      Video to Frame <span className="text-[9px] text-accent">✨ New</span>
+                      Video to Images <span className="text-[9px] text-accent">✨ New</span>
                     </a>
                   </div>
                 </details>

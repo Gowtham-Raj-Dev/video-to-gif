@@ -6,7 +6,7 @@ export const SITE = {
   tagline: "Convert, Compress & Edit GIFs and Videos in Seconds.",
   altTagline: "The fastest online GIF and Video toolkit.",
   description:
-    "Create GIFs, convert videos, resize, crop, compress, optimize, and download instantly without installing any software. No watermark. No signup. Works directly in your browser.",
+    "Free in-browser GIF and video tools: convert video to GIF and GIF to MP4, then resize, crop or compress. Files stay on your device. No signup, no watermark.",
   url: IS_PROD
     ? "https://videotogif.codelove.in"
     : "http://localhost:3000",
@@ -27,8 +27,29 @@ export const NAV_LINKS = [
   { label: "Contact", href: "/contact" },
 ] as const;
 
+/** Sister site that extracts frames from video (promoted in the header and footer). */
+export const VIDEO_TO_IMAGES_URL = "https://videotoimages.codelove.in";
+
+/** The rest of the CodeLove network — the only sister sites that exist. */
+export const NETWORK = [
+  { label: "CodeLove", href: SITE.brandUrl },
+  { label: "Downloader", href: "https://downloader.codelove.in" },
+  { label: "Link in Bio", href: "https://linkinbio.codelove.in" },
+  { label: "3D Models", href: "https://models.codelove.in" },
+  { label: "Video to Images", href: VIDEO_TO_IMAGES_URL },
+] as const;
+
 /** Prefix a public asset path with the basePath so it resolves on GitHub Pages. */
 export function asset(path: string): string {
   const clean = path.startsWith("/") ? path : `/${path}`;
   return `${SITE.basePath}${clean}`;
+}
+
+/**
+ * Absolute URL for an internal page path, always ending in a slash to match
+ * `trailingSlash: true` (the URL GitHub Pages actually serves).
+ */
+export function absoluteUrl(path = "/"): string {
+  const clean = path.startsWith("/") ? path : `/${path}`;
+  return `${SITE.url}${clean.endsWith("/") ? clean : `${clean}/`}`;
 }

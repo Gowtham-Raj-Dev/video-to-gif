@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { CheckIcon, ArrowRightIcon } from "@/components/Icons";
+import { SITE } from "@/lib/site";
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -14,15 +15,19 @@ export function ContactForm() {
         </span>
         <h3 className="mt-5 font-display text-xl font-bold">Message ready</h3>
         <p className="mt-2 max-w-sm text-sm text-muted">
-          Thanks for reaching out! Connect this form to your email service or
-          backend to start receiving messages.
+          Your email app should have opened with your message ready to send.
+          If it didn&apos;t, email us directly at{" "}
+          <a href={`mailto:${SITE.email}`} className="font-medium text-accent hover:underline">
+            {SITE.email}
+          </a>
+          .
         </p>
         <button
           type="button"
           onClick={() => setSent(false)}
           className="btn-ghost mt-6"
         >
-          Send another
+          Write another
         </button>
       </div>
     );
@@ -33,6 +38,11 @@ export function ContactForm() {
       className="glass rounded-3xl p-6 sm:p-8"
       onSubmit={(e) => {
         e.preventDefault();
+        // There is no backend: hand the message to the visitor's own email app.
+        const data = new FormData(e.currentTarget);
+        const subject = String(data.get("subject") ?? "");
+        const body = `${data.get("message") ?? ""}\n\nFrom: ${data.get("name") ?? ""} <${data.get("email") ?? ""}>`;
+        window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         setSent(true);
       }}
     >

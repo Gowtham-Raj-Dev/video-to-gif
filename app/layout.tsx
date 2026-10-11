@@ -8,8 +8,9 @@ import { Footer } from "@/components/Footer";
 import { PageLoader } from "@/components/PageLoader";
 import { JsonLd } from "@/components/JsonLd";
 import { SmoothScroll } from "@/components/SmoothScroll";
-import { organizationSchema, websiteSchema } from "@/lib/seo";
-import { SITE } from "@/lib/site";
+import { OG_IMAGE, organizationSchema, websiteSchema } from "@/lib/seo";
+import { SITE, absoluteUrl } from "@/lib/site";
+import { ADSENSE_CLIENT } from "@/lib/adsense";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -48,19 +49,22 @@ export const metadata: Metadata = {
     "free online converter",
     "codelove",
   ],
-  alternates: { canonical: SITE.url },
+  alternates: { canonical: absoluteUrl("/") },
   openGraph: {
     type: "website",
-    url: SITE.url,
+    url: absoluteUrl("/"),
     siteName: SITE.name,
     title: "Free Online GIF & Video Editing Tools | GIF Studio",
     description: SITE.description,
+    locale: "en_US",
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: "Free Online GIF & Video Editing Tools | GIF Studio",
     description: SITE.description,
     creator: SITE.twitter,
+    images: [OG_IMAGE.url],
   },
   robots: {
     index: true,
@@ -89,6 +93,18 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`scroll-smooth ${inter.variable} ${jakarta.variable}`}
     >
+      <head>
+        {ADSENSE_CLIENT ? (
+          <>
+            <meta name="google-adsense-account" content={ADSENSE_CLIENT} />
+            <script
+              async
+              src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+              crossOrigin="anonymous"
+            />
+          </>
+        ) : null}
+      </head>
       <body className="min-h-screen font-sans antialiased">
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-J5QTR1JC22" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
