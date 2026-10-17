@@ -78,6 +78,7 @@ export function websiteSchema() {
     "@type": "WebSite",
     "@id": WEBSITE_ID,
     name: SITE.name,
+    alternateName: ["GIF Studio by CodeLove", "CodeLove Video to GIF", "videotogif.codelove.in"],
     url: absoluteUrl("/"),
     description: SITE.description,
     inLanguage: "en",

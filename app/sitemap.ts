@@ -12,8 +12,19 @@ const STATIC_ROUTES = ["/", "/tools", "/about", "/contact", "/privacy", "/terms"
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  return [...STATIC_ROUTES, ...TOOLS.map((t) => `/${t.slug}`)].map((path) => ({
-    url: absoluteUrl(path),
-    lastModified,
-  }));
+  const legal = ["/privacy", "/terms"];
+  return [
+    ...STATIC_ROUTES.map((path) => ({
+      url: absoluteUrl(path),
+      lastModified,
+      changeFrequency: legal.includes(path) ? ("yearly" as const) : ("weekly" as const),
+      priority: path === "/" ? 1 : legal.includes(path) ? 0.3 : 0.7,
+    })),
+    ...TOOLS.map((t) => ({
+      url: absoluteUrl(`/${t.slug}`),
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.9,
+    })),
+  ];
 }

@@ -37,6 +37,7 @@ export const NETWORK = [
   { label: "Link in Bio", href: "https://linkinbio.codelove.in" },
   { label: "3D Models", href: "https://models.codelove.in" },
   { label: "Video to Images", href: VIDEO_TO_IMAGES_URL },
+  { label: "3D Games", href: "https://games.codelove.in" },
 ] as const;
 
 /** Prefix a public asset path with the basePath so it resolves on GitHub Pages. */
