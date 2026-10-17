@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { GithubIcon, GridIcon } from "@/components/Icons";
 import { HeartButton } from "@/components/HeartButton";
-import { NETWORK, SITE, VIDEO_TO_IMAGES_URL } from "@/lib/site";
+import { GUIDES, NETWORK, SITE, VIDEO_TO_IMAGES_URL } from "@/lib/site";
 import { TOOLS } from "@/lib/tools";
 
 const columns = [
@@ -84,16 +84,31 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
-          <h3 className="font-semibold text-[color:var(--fg)]">More from CodeLove</h3>
+          <h3 className="font-semibold text-[color:var(--fg)]">CodeLove network</h3>
           {NETWORK.map((n) => (
             <a
               key={n.href}
               href={n.href}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               className="text-muted transition hover:text-accent"
             >
               {n.label}
+            </a>
+          ))}
+        </div>
+
+        <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+          <h3 className="font-semibold text-[color:var(--fg)]">Guides</h3>
+          {GUIDES.map((g) => (
+            <a
+              key={g.href}
+              href={g.href}
+              target="_blank"
+              rel="noopener"
+              className="text-muted transition hover:text-accent"
+            >
+              {g.label}
             </a>
           ))}
           <a

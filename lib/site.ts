@@ -33,11 +33,23 @@ export const VIDEO_TO_IMAGES_URL = "https://videotoimages.codelove.in";
 /** The rest of the CodeLove network — the only sister sites that exist. */
 export const NETWORK = [
   { label: "CodeLove", href: SITE.brandUrl },
-  { label: "Downloader", href: "https://downloader.codelove.in" },
+  { label: "Free 3D Models", href: "https://models.codelove.in" },
+  { label: "Free 3D Games", href: "https://games.codelove.in" },
+  { label: "Instagram & Pinterest Downloader", href: "https://downloader.codelove.in" },
   { label: "Link in Bio", href: "https://linkinbio.codelove.in" },
-  { label: "3D Models", href: "https://models.codelove.in" },
   { label: "Video to Images", href: VIDEO_TO_IMAGES_URL },
-  { label: "3D Games", href: "https://games.codelove.in" },
+] as const;
+
+/** Related how-to guides on the main CodeLove site (linked from the footer). */
+export const GUIDES = [
+  {
+    label: "How to convert video to GIF",
+    href: "https://codelove.in/learn/guide/how-to-convert-video-to-gif",
+  },
+  {
+    label: "How to make a GIF smaller",
+    href: "https://codelove.in/learn/guide/how-to-make-a-gif-smaller",
+  },
 ] as const;
 
 /** Prefix a public asset path with the basePath so it resolves on GitHub Pages. */
