@@ -38,6 +38,8 @@ export const NETWORK = [
   { label: "Instagram & Pinterest Downloader", href: "https://downloader.codelove.in" },
   { label: "Link in Bio", href: "https://linkinbio.codelove.in" },
   { label: "Video to Images", href: VIDEO_TO_IMAGES_URL },
+  { label: "Free YouTube Automation", href: "https://utubeflow.codelove.in" },
+  { label: "Free Java Games", href: "https://javagames-emu.codelove.in" },
 ] as const;
 
 /** Related how-to guides on the main CodeLove site (linked from the footer). */
