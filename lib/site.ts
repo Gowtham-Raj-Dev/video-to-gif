@@ -35,7 +35,7 @@ export const NETWORK = [
   { label: "CodeLove", href: SITE.brandUrl },
   { label: "Free 3D Models", href: "https://models.codelove.in" },
   { label: "Free 3D Games", href: "https://games.codelove.in" },
-  { label: "Instagram & Pinterest Downloader", href: "https://downloader.codelove.in" },
+  { label: "Insta Downloader", href: "https://downloader.codelove.in" },
   { label: "Link in Bio", href: "https://linkinbio.codelove.in" },
   { label: "Video to Images", href: VIDEO_TO_IMAGES_URL },
   { label: "Free YouTube Automation", href: "https://utubeflow.codelove.in" },

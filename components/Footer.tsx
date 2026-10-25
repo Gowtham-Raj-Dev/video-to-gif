@@ -111,12 +111,16 @@ export function Footer() {
               {g.label}
             </a>
           ))}
+        </div>
+
+        {/* The parent brand and what it does, in one line — same text on every CodeLove site. */}
+        <div className="mt-8 flex flex-col gap-3 border-t border-[color:var(--border)] pt-6 sm:flex-row sm:items-center sm:gap-6">
           <a
             href={SITE.brandUrl}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="CodeLove — codelove.in"
-            className="block w-fit max-sm:mt-3 max-sm:basis-full sm:ml-auto"
+            className="block w-fit shrink-0"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -137,6 +141,10 @@ export function Footer() {
               className="hidden h-12 w-auto [.dark_&]:block"
             />
           </a>
+          <p className="text-sm leading-relaxed text-muted">
+            CodeLove makes free web tools, apps and games for creators, students and developers — simple to use, no
+            hidden fees.
+          </p>
         </div>
 
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-[color:var(--border)] pt-6 text-sm text-muted sm:flex-row">
