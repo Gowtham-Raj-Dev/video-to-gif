@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { GithubIcon, GridIcon } from "@/components/Icons";
 import { HeartButton } from "@/components/HeartButton";
+import { ContactLinks } from "@/components/ContactLinks";
 import { GUIDES, NETWORK, SITE, VIDEO_TO_IMAGES_URL } from "@/lib/site";
 import { TOOLS } from "@/lib/tools";
 
@@ -168,6 +169,8 @@ export function Footer() {
             >
               CodeLove
             </a>
+            <span className="opacity-50">•</span>
+            <ContactLinks className="text-[color:var(--fg)]" />
           </p>
         </div>
       </div>
