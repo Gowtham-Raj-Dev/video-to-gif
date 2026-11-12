@@ -60,6 +60,7 @@ export function HeroUploadPanel() {
           ref={inputRef}
           type="file"
           accept="video/*"
+          aria-label="Upload video file to convert to GIF"
           hidden
           onChange={(e) => setFile(e.target.files?.[0] ?? null)}
         />
