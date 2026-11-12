@@ -321,7 +321,7 @@ export const TOOLS: Tool[] = [
     long: "Big GIFs load slowly and hit upload limits. Compress yours with smart color and frame optimization to cut file size dramatically while keeping the animation looking great — perfect for faster pages and easy sharing.",
     seoTitle: "Compress GIF Online Without Losing Quality | GIF Studio",
     metaDescription:
-      "Compress GIF online free without losing quality. Smart optimization shrinks file size for faster loading. No watermark, no signup, private in-browser GIF compressor.",
+      "Compress GIF online free without losing quality. Smart optimization shrinks file size fast with no watermark and no signup — private in-browser tool.",
     keywords: [
       "compress gif online free",
       "gif compressor free",

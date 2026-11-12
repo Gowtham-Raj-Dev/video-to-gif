@@ -1,0 +1,15 @@
+# GIF Studio — Video to GIF & Free GIF Tools (by CodeLove)
+
+> Free browser-based GIF tools: convert video to GIF, GIF to MP4, compress GIFs, crop, and resize animations privately without uploads or watermarks.
+
+## Tools
+- [Video to GIF](https://videotogif.codelove.in/video-to-gif/): Convert MP4, MOV, AVI, MKV, WebM into smooth animated GIFs.
+- [GIF to Video](https://videotogif.codelove.in/gif-to-video/): Convert animated GIFs to lightweight MP4 videos.
+- [GIF Compressor](https://videotogif.codelove.in/gif-compressor/): Reduce GIF file size in-browser without losing animation quality.
+- [GIF Resize](https://videotogif.codelove.in/gif-resize/) & [GIF Crop](https://videotogif.codelove.in/gif-crop/)
+- [Video Compressor](https://videotogif.codelove.in/video-compressor/), [Video Crop](https://videotogif.codelove.in/video-crop/), [Video Resize](https://videotogif.codelove.in/video-resize/)
+
+## Companion CodeLove Video Tools
+- [Video Cut (Shorts Cutter)](https://videocut.codelove.in)
+- [Video to Images](https://videotoimages.codelove.in)
+

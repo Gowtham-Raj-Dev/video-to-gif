@@ -55,6 +55,7 @@ export default function ToolsPage() {
       </section>
 
       <section className="container-px pb-[50px]">
+        <h2 className="sr-only">Explore All GIF and Video Tools</h2>
         <ToolsExplorer />
       </section>
 
