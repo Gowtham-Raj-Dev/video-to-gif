@@ -9,7 +9,7 @@ import { TOOLS } from "@/lib/tools";
 const columns = [
   {
     title: "Tools",
-    links: TOOLS.slice(0, 5).map((t) => ({ label: t.name, href: `/${t.slug}` })),
+    links: TOOLS.map((t) => ({ label: t.name, href: `/${t.slug}` })),
   },
   {
     title: "Resources",

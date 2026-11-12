@@ -8,7 +8,7 @@ import { Footer } from "@/components/Footer";
 import { PageLoader } from "@/components/PageLoader";
 import { JsonLd } from "@/components/JsonLd";
 import { SmoothScroll } from "@/components/SmoothScroll";
-import { OG_IMAGE, organizationSchema, websiteSchema } from "@/lib/seo";
+import { OG_IMAGE, organizationSchema, personSchema, websiteSchema } from "@/lib/seo";
 import { SITE, absoluteUrl } from "@/lib/site";
 import { ADSENSE_CLIENT } from "@/lib/adsense";
 
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   description: SITE.description,
   applicationName: SITE.name,
-  authors: [{ name: SITE.creator, url: SITE.brandUrl }],
+  authors: [{ name: SITE.creator, url: SITE.creatorUrl }],
   creator: SITE.creator,
   publisher: SITE.brand,
   manifest: `${SITE.url}/manifest.webmanifest`,
@@ -39,12 +39,21 @@ export const metadata: Metadata = {
     "gif studio",
     "video to gif free",
     "video to gif converter free",
-    "mp4to gif free",
+    "mp4 to gif free",
     "gif maker free",
     "compress gif online free",
+    "online video compressor",
+    "video compressor online",
     "video compressor free",
+    "compress video online free",
+    "reduce video size online",
+    "video size compressor",
+    "compress video for whatsapp",
     "resize gif free",
     "crop video free",
+    "crop video 1 1",
+    "video cut",
+    "video shorts cutter",
     "online video editor free",
     "free online converter",
     "mp4 to gif",
@@ -55,6 +64,7 @@ export const metadata: Metadata = {
     "high quality gif maker",
     "gif maker online",
     "codelove",
+    "code love",
     "codelove gif",
     "codelove video to gif",
   ],
@@ -130,7 +140,7 @@ export default function RootLayout({
             gtag('config', 'G-J5QTR1JC22');
           `}
         </Script>
-        <JsonLd data={[organizationSchema(), websiteSchema()]} />
+        <JsonLd data={[organizationSchema(), websiteSchema(), personSchema()]} />
         <ThemeProvider>
           <SmoothScroll />
           <PageLoader />

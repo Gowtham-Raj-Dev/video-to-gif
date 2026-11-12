@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE, absoluteUrl } from "./site";
+import { NETWORK, SITE, absoluteUrl } from "./site";
 import type { Tool } from "./tools";
 
 interface PageSeo {
@@ -58,7 +58,20 @@ export function buildMetadata({
 /* ---------- JSON-LD structured data ---------- */
 
 const ORGANIZATION_ID = `${SITE.brandUrl}/#organization`;
+const PERSON_ID = `${SITE.creatorUrl}/#person`;
 const WEBSITE_ID = `${absoluteUrl("/")}#website`;
+
+/** The creator behind the CodeLove network: Gowtham. */
+export function personSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": PERSON_ID,
+    name: SITE.creator,
+    url: SITE.creatorUrl,
+    worksFor: { "@id": ORGANIZATION_ID },
+  };
+}
 
 /** The publisher behind the site: CodeLove. */
 export function organizationSchema() {
@@ -69,6 +82,8 @@ export function organizationSchema() {
     name: "CodeLove",
     url: SITE.brandUrl,
     email: SITE.email,
+    founder: { "@id": PERSON_ID },
+    sameAs: NETWORK.map((n) => n.href),
   };
 }
 
@@ -82,6 +97,7 @@ export function websiteSchema() {
     url: absoluteUrl("/"),
     description: SITE.description,
     inLanguage: "en",
+    creator: { "@id": PERSON_ID },
     publisher: { "@id": ORGANIZATION_ID },
   };
 }
@@ -99,6 +115,7 @@ export function softwareApplicationSchema(tool?: Tool) {
     isAccessibleForFree: true,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     isPartOf: { "@id": WEBSITE_ID },
+    creator: { "@id": PERSON_ID },
     publisher: { "@id": ORGANIZATION_ID },
   };
 }

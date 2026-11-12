@@ -12,6 +12,7 @@ export const SITE = {
     : "http://localhost:3000",
   basePath: "",
   creator: "Gowtham",
+  creatorUrl: "https://gowtham.codelove.in",
   brand: "CodeLove.in",
   brandUrl: "https://codelove.in",
   twitter: "@gifstudio",
@@ -33,11 +34,13 @@ export const VIDEO_TO_IMAGES_URL = "https://videotoimages.codelove.in";
 /** The rest of the CodeLove network — the only sister sites that exist. */
 export const NETWORK = [
   { label: "CodeLove", href: SITE.brandUrl },
+  { label: "Gowtham Portfolio", href: SITE.creatorUrl },
   { label: "Free 3D Models", href: "https://models.codelove.in" },
   { label: "Free 3D Games", href: "https://games.codelove.in" },
   { label: "Insta Downloader", href: "https://downloader.codelove.in" },
   { label: "Link in Bio", href: "https://linkinbio.codelove.in" },
   { label: "Video to Images", href: VIDEO_TO_IMAGES_URL },
+  { label: "Video Cut", href: "https://videocut.codelove.in" },
   { label: "Free YouTube Automation", href: "https://utubeflow.codelove.in" },
   { label: "Free Java Games", href: "https://javaplay.codelove.in" },
 ] as const;
