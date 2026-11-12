@@ -5,7 +5,7 @@ export function CtaBanner({
   title = "Ready to edit your GIFs & videos?",
   subtitle = "Jump straight into any tool — no signup, no watermark, no waiting. Just open and create.",
   cta = "Start Editing Now",
-  href = "/tools",
+  href = "/tools/",
 }: {
   title?: string;
   subtitle?: string;

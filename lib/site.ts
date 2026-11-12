@@ -21,11 +21,11 @@ export const SITE = {
 
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Tools", href: "/tools" },
+  { label: "Tools", href: "/tools/" },
   { label: "Features", href: "/#features" },
   { label: "How It Works", href: "/#how-it-works" },
   { label: "FAQ", href: "/#faq" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "/contact/" },
 ] as const;
 
 /** Sister site that extracts frames from video (promoted in the header and footer). */

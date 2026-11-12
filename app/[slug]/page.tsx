@@ -91,7 +91,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 >
                   Upload File <ArrowRightIcon className="h-4 w-4" />
                 </label>
-                <Link href="/tools" className="btn-ghost">
+                <Link href="/tools/" className="btn-ghost">
                   All Tools
                 </Link>
               </div>

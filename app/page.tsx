@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
 import { TrustedMarquee } from "@/components/home/TrustedMarquee";
 import { ToolsSection } from "@/components/home/ToolsSection";
@@ -11,7 +12,12 @@ import { FaqSection } from "@/components/home/FaqSection";
 import { CtaBanner } from "@/components/CtaBanner";
 import { JsonLd } from "@/components/JsonLd";
 import { softwareApplicationSchema, faqSchema } from "@/lib/seo";
+import { absoluteUrl } from "@/lib/site";
 import { HOME_FAQS } from "@/lib/content";
+
+export const metadata: Metadata = {
+  alternates: { canonical: absoluteUrl("/") },
+};
 
 export default function HomePage() {
   return (

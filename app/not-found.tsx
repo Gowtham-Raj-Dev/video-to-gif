@@ -16,7 +16,7 @@ export default function NotFound() {
         <Link href="/" className="btn-primary">
           Back Home <ArrowRightIcon className="h-4 w-4" />
         </Link>
-        <Link href="/tools" className="btn-ghost">
+        <Link href="/tools/" className="btn-ghost">
           Browse Tools
         </Link>
       </div>

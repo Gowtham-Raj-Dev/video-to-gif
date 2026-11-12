@@ -40,7 +40,7 @@ export function Header() {
                         {TOOLS.map((t) => (
                           <Link
                             key={t.slug}
-                            href={`/${t.slug}`}
+                            href={`/${t.slug}/`}
                             className="flex items-start gap-3 rounded-lg border border-transparent p-3 transition-colors hover:border-[color:var(--border)] hover:bg-[color:var(--bg-alt)]"
                           >
                             <div className={`mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-md bg-gradient-to-br ${t.gradient} text-white`}>
@@ -84,7 +84,7 @@ export function Header() {
 
           <div className="flex items-center gap-2 sm:gap-3">
             <ThemeToggle />
-            <Link href="/tools" className="btn-primary hidden sm:inline-flex">
+            <Link href="/tools/" className="btn-primary hidden sm:inline-flex">
               Start Editing
             </Link>
             <button
@@ -113,7 +113,7 @@ export function Header() {
                     {TOOLS.map((t) => (
                       <Link
                         key={t.slug}
-                        href={`/${t.slug}`}
+                        href={`/${t.slug}/`}
                         onClick={() => setOpen(false)}
                         className="flex items-center gap-2 rounded-md px-3 py-2.5 text-sm text-muted transition-colors hover:text-[color:var(--fg)]"
                       >
@@ -144,7 +144,7 @@ export function Header() {
               )
             )}
             <Link
-              href="/tools"
+              href="/tools/"
               onClick={() => setOpen(false)}
               className="btn-primary mt-2 w-full"
             >

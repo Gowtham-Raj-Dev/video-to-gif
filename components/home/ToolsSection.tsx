@@ -21,7 +21,7 @@ export function ToolsSection() {
       </div>
 
       <Reveal className="mt-12 text-center">
-        <Link href="/tools" className="btn-ghost">
+        <Link href="/tools/" className="btn-ghost">
           View all tools <ArrowRightIcon className="h-4 w-4" />
         </Link>
       </Reveal>

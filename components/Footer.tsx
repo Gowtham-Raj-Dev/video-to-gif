@@ -9,13 +9,13 @@ import { TOOLS } from "@/lib/tools";
 const columns = [
   {
     title: "Tools",
-    links: TOOLS.map((t) => ({ label: t.name, href: `/${t.slug}` })),
+    links: TOOLS.map((t) => ({ label: t.name, href: `/${t.slug}/` })),
   },
   {
     title: "Resources",
     links: [
 
-      { label: "All Tools", href: "/tools" },
+      { label: "All Tools", href: "/tools/" },
       { label: "Features", href: "/#features" },
       { label: "How It Works", href: "/#how-it-works" },
     ],
@@ -24,10 +24,10 @@ const columns = [
     title: "Support",
     links: [
       { label: "FAQ", href: "/#faq" },
-      { label: "About", href: "/about" },
-      { label: "Contact", href: "/contact" },
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
+      { label: "About", href: "/about/" },
+      { label: "Contact", href: "/contact/" },
+      { label: "Privacy Policy", href: "/privacy/" },
+      { label: "Terms", href: "/terms/" },
     ],
   },
 ];

@@ -5,7 +5,7 @@ import type { Tool } from "@/lib/tools";
 export function ToolCard({ tool }: { tool: Tool; index?: number }) {
   return (
     <Link
-      href={`/${tool.slug}`}
+      href={`/${tool.slug}/`}
       className="group flex h-full flex-col rounded-xl border border-[color:var(--border)] bg-[color:var(--card)] p-6 transition-colors hover:border-accent"
     >
       <div className="flex items-center justify-between">

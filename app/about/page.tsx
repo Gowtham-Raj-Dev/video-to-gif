@@ -76,11 +76,11 @@ export default function AboutPage() {
               <h2 className="font-display text-xl font-bold">Get in touch</h2>
               <p className="mt-3 text-sm leading-relaxed text-muted">
                 Questions, bug reports or feature ideas are welcome on our{" "}
-                <Link href="/contact" className="text-accent hover:underline">
+                <Link href="/contact/" className="text-accent hover:underline">
                   Contact page
                 </Link>{" "}
                 or at {SITE.email}. You can also browse{" "}
-                <Link href="/tools" className="text-accent hover:underline">
+                <Link href="/tools/" className="text-accent hover:underline">
                   all tools
                 </Link>
                 .

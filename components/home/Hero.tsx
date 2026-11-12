@@ -25,10 +25,10 @@ export function Hero() {
             </p>
 
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
-              <Link href="/tools" className="btn-primary px-6 py-3 text-base">
+              <Link href="/tools/" className="btn-primary px-6 py-3 text-base">
                 Start Editing <ArrowRightIcon className="h-4 w-4" />
               </Link>
-              <Link href="/tools" className="btn-ghost px-6 py-3 text-base">
+              <Link href="/tools/" className="btn-ghost px-6 py-3 text-base">
                 Explore Tools
               </Link>
             </div>

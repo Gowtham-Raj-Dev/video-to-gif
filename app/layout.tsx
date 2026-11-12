@@ -68,7 +68,6 @@ export const metadata: Metadata = {
     "codelove gif",
     "codelove video to gif",
   ],
-  alternates: { canonical: absoluteUrl("/") },
   openGraph: {
     type: "website",
     url: absoluteUrl("/"),
