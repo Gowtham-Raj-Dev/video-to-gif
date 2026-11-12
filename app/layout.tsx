@@ -118,6 +118,7 @@ export default function RootLayout({
       className={`scroll-smooth ${inter.variable} ${jakarta.variable}`}
     >
       <head>
+        <link rel="sitemap" type="application/xml" href="https://videotogif.codelove.in/sitemap.xml" />
         {ADSENSE_CLIENT ? (
           <>
             <meta name="google-adsense-account" content={ADSENSE_CLIENT} />

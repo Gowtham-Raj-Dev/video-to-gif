@@ -14,43 +14,19 @@ import { AnimatePresence, motion } from "framer-motion";
  * flash the loader for a short, consistent duration each time it changes.
  */
 export function PageLoader() {
-  const [loading, setLoading] = useState(true);
+  // Never block SSR or initial load with a fullscreen curtain (keeps FCP/LCP fast for users and crawlers).
+  const [loading, setLoading] = useState(false);
   const pathname = usePathname();
   const isFirstRender = useRef(true);
 
-  // Initial load / hard refresh.
+  // Client-side route changes only.
   useEffect(() => {
-    const MIN_VISIBLE = 700; // keep it on screen long enough to feel intentional
-    const start = performance.now();
-
-    const finish = () => {
-      const elapsed = performance.now() - start;
-      const remaining = Math.max(0, MIN_VISIBLE - elapsed);
-      window.setTimeout(() => setLoading(false), remaining);
-    };
-
-    if (document.readyState === "complete") {
-      finish();
-    } else {
-      window.addEventListener("load", finish, { once: true });
-      // Safety net in case the load event was already missed.
-      const fallback = window.setTimeout(finish, 2500);
-      return () => {
-        window.removeEventListener("load", finish);
-        window.clearTimeout(fallback);
-      };
-    }
-  }, []);
-
-  // Client-side route changes.
-  useEffect(() => {
-    // Skip the first run — the initial-load effect above already covers it.
     if (isFirstRender.current) {
       isFirstRender.current = false;
       return;
     }
     setLoading(true);
-    const timer = window.setTimeout(() => setLoading(false), 650);
+    const timer = window.setTimeout(() => setLoading(false), 350);
     return () => window.clearTimeout(timer);
   }, [pathname]);
 
