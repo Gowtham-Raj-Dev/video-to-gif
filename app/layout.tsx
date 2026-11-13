@@ -129,6 +129,8 @@ export default function RootLayout({
             />
           </>
         ) : null}
+        {/* CodeLove Analytics (admin.codelove.in) */}
+        <script defer src="https://admin.codelove.in/t.js" />
       </head>
       <body className="min-h-screen font-sans antialiased">
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-J5QTR1JC22" strategy="afterInteractive" />
