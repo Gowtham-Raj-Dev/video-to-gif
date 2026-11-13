@@ -11,5 +11,6 @@
 
 ## Companion CodeLove Video Tools
 - [Video Cut (Shorts Cutter)](https://videocut.codelove.in)
+- [Free AI Video Maker](https://videomaker.codelove.in)
 - [Video to Images](https://videotoimages.codelove.in)
 
