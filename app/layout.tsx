@@ -129,8 +129,9 @@ export default function RootLayout({
             />
           </>
         ) : null}
-        {/* CodeLove Analytics (admin.codelove.in) */}
-        <script defer src="https://admin.codelove.in/t.js" />
+        {/* CodeLove Analytics (admin.codelove.in). async, not defer: React treats <script async src> as a resource and
+            skips it during hydration; a defer script gets compared with the script AdSense inserts into <head>. */}
+        <script async src="https://admin.codelove.in/t.js" />
       </head>
       <body className="min-h-screen font-sans antialiased">
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-J5QTR1JC22" strategy="afterInteractive" />
