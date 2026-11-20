@@ -32,7 +32,7 @@ export const WHY_CHOOSE: WhyItem[] = [
   { icon: "tag", title: "No Watermark", description: "Every export is clean — we never brand your creations." },
   { icon: "cpu", title: "Modern Browser Technology", description: "Powered by fast, native web APIs for desktop-class performance." },
   { icon: "phone", title: "Works on Mobile", description: "A fully responsive experience that feels great on any screen." },
-  { icon: "cloudoff", title: "Works Offline", description: "Where supported, tools keep working even without a connection." },
+  { icon: "cloudoff", title: "Runs on Your Device", description: "ffmpeg runs inside your browser tab, so files are processed locally, not on a server." },
   { icon: "keyoff", title: "No Registration", description: "Just open a tool and start — no account, no email required." },
   { icon: "sparkle", title: "100% Free", description: "Every tool is free to use, with no hidden paywalls." },
   { icon: "heart", title: "Beautiful UI", description: "A polished, accessible interface crafted down to the last pixel." },
@@ -174,7 +174,8 @@ export interface Faq {
 export const HOME_FAQS: Faq[] = [
   { question: "Is GIF Studio free?", answer: "Yes. Every tool on GIF Studio is completely free to use with no hidden paywalls, no trials and no premium tiers. You can convert, compress, resize and crop as much as you want." },
   { question: "Does it add a watermark?", answer: "Never. All of your exports are 100% watermark-free, no matter which tool you use or how many files you process." },
-  { question: "Can I compress large videos?", answer: "Yes. The video compressor is built to handle large files and can often reduce size by 60–80% while keeping the footage looking sharp." },
+  { question: "Is this a free video to GIF converter?", answer: "Yes. The MP4 to GIF converter is free with no watermark: pick the start time, length, frame rate and width, and download a looping GIF." },
+  { question: "Can I compress large videos?", answer: "Yes. The video compressor re-encodes the video as H.264 at the quality level you choose. Very long or 4K videos take a while, because the work happens on your own device." },
   { question: "Does it work on mobile?", answer: "Absolutely. GIF Studio is fully responsive and every tool works in modern mobile browsers on both iOS and Android." },
   { question: "Which browsers are supported?", answer: "The latest versions of Chrome, Edge, Firefox, Safari and other Chromium-based browsers are fully supported for the best experience." },
   { question: "Is my file uploaded to a server?", answer: "No. Processing happens locally in your browser, so your files never leave your device. This keeps your content completely private." },
@@ -184,7 +185,7 @@ export const HOME_FAQS: Faq[] = [
   { question: "How long are my files stored?", answer: "They aren't. Because everything is processed on your device, nothing is stored on any server — your files disappear the moment you close the tab." },
   { question: "Do I need to create an account?", answer: "No account or signup is required. Just open a tool and start working immediately." },
   { question: "What video formats can I convert?", answer: "MP4, MOV, AVI, MKV, WEBM and MPEG are all supported for conversion, cropping, resizing and compression." },
-  { question: "Will compression reduce my quality?", answer: "Our tools use smart optimization to minimize file size while preserving visual quality, so any change is typically hard to notice." },
-  { question: "Can I use GIF Studio offline?", answer: "Where your browser supports it, the tools continue to work offline since processing doesn't depend on a server." },
+  { question: "Will compression reduce my quality?", answer: "A little: smaller files always mean some detail is dropped. Each compressor lets you choose a gentler or stronger level, and the result shows its new size before you download." },
+  { question: "Do I need an internet connection?", answer: "Only to open the page: the first conversion also downloads the ffmpeg converter (about 30 MB) once. The processing itself happens on your device, not on a server." },
   { question: "Is there a limit on how many files I can process?", answer: "No. There are no artificial limits — convert, resize, crop and compress as many files as you like, completely free." },
 ];

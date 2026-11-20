@@ -6,7 +6,7 @@ export const SITE = {
   tagline: "Convert, Compress & Edit GIFs and Videos in Seconds.",
   altTagline: "The fastest online GIF and Video toolkit.",
   description:
-    "Free in-browser GIF and video tools: convert video to GIF and GIF to MP4, then resize, crop or compress. Files stay on your device. No signup, no watermark.",
+    "Free video to GIF converter and GIF maker: MP4 to GIF, GIF to MP4, compress, resize and crop GIFs and videos in your browser. No signup, no watermark.",
   url: IS_PROD
     ? "https://videotogif.codelove.in"
     : "http://localhost:3000",

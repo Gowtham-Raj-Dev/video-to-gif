@@ -16,12 +16,12 @@ export function Hero() {
             </div>
 
             <h1 className="mt-5 font-display text-4xl font-bold leading-[1.1] tracking-tight text-balance sm:text-5xl">
-              Convert &amp; edit GIFs and videos online
+              Free video to GIF converter &amp; GIF maker
             </h1>
 
             <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg lg:mx-0">
-              Convert, resize, crop, compress and optimize — all in your browser,
-              in seconds. No installs, no uploads, no waiting.
+              Turn MP4 into GIF, GIF into MP4, and resize, crop or compress GIFs and
+              videos — all in your browser. No installs, no uploads, no watermark.
             </p>
 
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">

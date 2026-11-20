@@ -33,11 +33,10 @@ export function FaqAccordion({ items }: { items: FaqType[] }) {
                 }`}
               />
             </button>
-            {isOpen && (
-              <p className="px-5 pb-5 text-sm leading-relaxed text-muted">
-                {item.answer}
-              </p>
-            )}
+            {/* Always rendered (hidden when closed) so every answer is in the page HTML, matching the FAQPage data. */}
+            <p hidden={!isOpen} className="px-5 pb-5 text-sm leading-relaxed text-muted">
+              {item.answer}
+            </p>
           </div>
         );
       })}

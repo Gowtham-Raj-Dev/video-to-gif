@@ -76,7 +76,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 </div>
               </div>
               <h1 className="mt-6 font-display text-4xl font-bold tracking-tight text-balance sm:text-5xl">
-                {tool.name}
+                {tool.h1}
               </h1>
               <p className="mt-4 text-lg font-medium text-[color:var(--fg)]">
                 {tool.tagline}
@@ -111,12 +111,46 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
+      {/* How-to guide: the page-specific text that makes each tool page its own page */}
+      <section className="container-px pt-[50px]">
+        <div className="mx-auto max-w-3xl">
+          <span className="section-eyebrow">Guide</span>
+          <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+            {tool.guide.heading}
+          </h2>
+          {tool.guide.intro.map((p) => (
+            <p key={p.slice(0, 40)} className="mt-4 text-base leading-relaxed text-muted">
+              {p}
+            </p>
+          ))}
+          <ol className="mt-6 space-y-3">
+            {tool.guide.steps.map((s, i) => (
+              <li key={s.slice(0, 40)} className="flex items-start gap-3 text-sm leading-relaxed sm:text-base">
+                <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent/10 text-xs font-semibold text-accent">
+                  {i + 1}
+                </span>
+                <span>{s}</span>
+              </li>
+            ))}
+          </ol>
+          <h3 className="mt-8 font-display text-xl font-bold">{tool.guide.tipsHeading}</h3>
+          <ul className="mt-4 space-y-3">
+            {tool.guide.tips.map((t) => (
+              <li key={t.slice(0, 40)} className="flex items-start gap-3 text-sm leading-relaxed text-muted sm:text-base">
+                <CheckIcon className="mt-1 h-4 w-4 shrink-0 text-accent" />
+                <span>{t}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* Features */}
       <section className="container-px py-[50px]">
         <SectionHeading
           eyebrow="Features"
-          title={`Everything in the ${tool.name} tool`}
-          description="Purpose-built controls that make the job fast, precise and effortless."
+          title={`What the ${tool.name} tool can do`}
+          description={tool.short}
         />
         <StaggerGroup className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {tool.features.map((f) => (
@@ -195,8 +229,8 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       <section className="container-px py-[50px]">
         <SectionHeading
           eyebrow="FAQ"
-          title={`${tool.name} questions`}
-          description="Quick answers about using this tool."
+          title={`${tool.h1}: questions`}
+          description={`Quick answers about the ${tool.name} tool.`}
         />
         <FaqAccordion items={tool.faqs} />
       </section>
@@ -218,8 +252,8 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       )}
 
       <CtaBanner
-        title={`Start using ${tool.name} now`}
-        subtitle="Free, private and watermark-free. No signup required — just upload and go."
+        title={`${tool.h1} — free in your browser`}
+        subtitle={tool.tagline}
       />
     </>
   );

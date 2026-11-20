@@ -26,7 +26,7 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Video to GIF Converter Free | GIF Studio by CodeLove",
+    default: "Video to GIF Converter Free & GIF Maker | CodeLove",
     template: "%s | GIF Studio",
   },
   description: SITE.description,
