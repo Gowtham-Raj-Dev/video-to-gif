@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
 import { TrustedMarquee } from "@/components/home/TrustedMarquee";
 import { ToolsSection } from "@/components/home/ToolsSection";
 import { WhyChoose } from "@/components/home/WhyChoose";
 import { FeatureShowcase } from "@/components/home/FeatureShowcase";
 import { HowItWorks } from "@/components/home/HowItWorks";
+import { HomeGuide } from "@/components/home/HomeGuide";
 import { Formats } from "@/components/home/Formats";
 import { Stats } from "@/components/home/Stats";
 import { Testimonials } from "@/components/home/Testimonials";
@@ -29,6 +30,7 @@ export default function HomePage() {
       <WhyChoose />
       <FeatureShowcase />
       <HowItWorks />
+      <HomeGuide />
       <Formats />
       <Stats />
       <Testimonials />
@@ -37,3 +39,4 @@ export default function HomePage() {
     </>
   );
 }
+

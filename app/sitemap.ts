@@ -1,9 +1,13 @@
-import type { MetadataRoute } from "next";
+﻿import type { MetadataRoute } from "next";
 import { TOOLS } from "@/lib/tools";
 import { absoluteUrl } from "@/lib/site";
 
 // Required for `output: "export"`: render /sitemap.xml once at build time.
 export const dynamic = "force-static";
+
+// Date the pages text last really changed. Update it by hand when content changes; a lastmod that moves on every
+// deploy teaches Google to ignore it.
+const LAST_CONTENT_UPDATE = "2026-11-21";
 
 /**
  * Emitted as /sitemap.xml by the static export. Tool URLs come from the same
@@ -12,7 +16,7 @@ export const dynamic = "force-static";
  * build time, so every deploy tells crawlers the pages are fresh.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+  const lastModified = LAST_CONTENT_UPDATE;
   const entries: Array<{ path: string; changeFrequency: "daily" | "weekly" | "monthly"; priority: number }> = [
     { path: "/", changeFrequency: "daily", priority: 1.0 },
     { path: "/tools", changeFrequency: "weekly", priority: 0.9 },
@@ -29,3 +33,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority,
   }));
 }
+
+

@@ -1,4 +1,4 @@
-import type { IconName } from "./tools";
+﻿import type { IconName } from "./tools";
 
 export interface WhyItem {
   icon:
@@ -187,5 +187,9 @@ export const HOME_FAQS: Faq[] = [
   { question: "What video formats can I convert?", answer: "MP4, MOV, AVI, MKV, WEBM and MPEG are all supported for conversion, cropping, resizing and compression." },
   { question: "Will compression reduce my quality?", answer: "A little: smaller files always mean some detail is dropped. Each compressor lets you choose a gentler or stronger level, and the result shows its new size before you download." },
   { question: "Do I need an internet connection?", answer: "Only to open the page: the first conversion also downloads the ffmpeg converter (about 30 MB) once. The processing itself happens on your device, not on a server." },
+  { question: "How do I compress a video for WhatsApp?", answer: "Open the video compressor, choose Small size and download the result. It re-encodes the clip as H.264 with AAC audio, which WhatsApp accepts, and shows the new file size so you can check it before sending." },
+  { question: "How do I compress a GIF online for free?", answer: "Open the GIF compressor, pick Light, Balanced or Strong and press Compress. Strong gives the smallest file by dropping to 10 frames per second at 60% of the original size." },
+  { question: "Is there a free GIF maker online?", answer: "Yes. GIF Studio turns any video clip into a looping GIF for free: choose the start time, length, frame rate and width, then download. No account and no watermark." },
   { question: "Is there a limit on how many files I can process?", answer: "No. There are no artificial limits — convert, resize, crop and compress as many files as you like, completely free." },
 ];
+
