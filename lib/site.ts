@@ -44,6 +44,7 @@ export const NETWORK = [
   { label: "Free AI Video Maker", href: "https://videomaker.codelove.in" },
   { label: "Free YouTube Automation", href: "https://utubeflow.codelove.in" },
   { label: "Free Java Games", href: "https://javaplay.codelove.in" },
+  { label: "Webly (Analytics & SEO)", href: "https://webly.codelove.in" },
 ] as const;
 
 /** Related how-to guides on the main CodeLove site (linked from the footer). */
